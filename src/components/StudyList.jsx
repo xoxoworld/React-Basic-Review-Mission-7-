@@ -2,23 +2,24 @@ import React from "react";
 
 export default function StudyList({ items, selectedId, onSelect }) {
   return (
-    <ul className="study-list">
+    <div className="study-list">
       {items.map((item) => {
         const isActive = item.id === selectedId;
         return (
-          <li
+          <div
             key={item.id}
             className={`study-item ${isActive ? "active" : ""}`}
             onClick={() => onSelect(item.id)}
-            style={{ cursor: "pointer" }}
           >
-            <h3>{item.title}</h3>
+            <h3 className="item-title">
+              {item.id}. {item.title}
+            </h3>
             {isActive && <p className="selected-message">선택된 항목입니다.</p>}
-            <p>ID: {item.id}</p>
-            <p>설명: {item.desc}</p>
-          </li>
+            <p className="item-desc">{item.desc}</p>
+            <p className="item-category">분류: {item.category}</p>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 }

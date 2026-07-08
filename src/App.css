@@ -1,100 +1,174 @@
 .app {
   max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 40px;
-  text-align: center; /* 전체 텍스트 가운데 정렬 */
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #333333;
 }
 
+/* 메인 타이틀 */
+.main-title {
+  font-size: 2.5em;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 8px;
+  text-align: center;
+  color: #111111;
+}
+
+/* 전체 학습 항목 수 */
 .total-count {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin: 15px 0;
+  font-size: 1em;
+  color: #888888;
+  margin-top: 0;
+  margin-bottom: 30px;
   text-align: center;
 }
 
-.study-info {
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-  margin: 10px auto 0 auto;
-  max-width: 600px;
-  text-align: center; /* 내부 텍스트 가운데 정렬 */
+/* 섹션 타이틀 */
+.section-title {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333333;
 }
 
-.controls {
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 컨트롤 그룹 가운데 정렬 */
-  gap: 15px;
-  max-width: 600px;
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* 카드 스타일 (첫 번째 데이터 출력 및 학습 목록 아이템 공통) */
+.study-info-card,
+.study-item {
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin-bottom: 15px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   width: 100%;
-}
-
-.search-container label {
-  font-weight: bold;
-  margin-right: 8px;
-}
-
-.search-container input {
-  padding: 8px;
-  font-size: 1em;
-  width: 100%;
-  max-width: 300px;
   box-sizing: border-box;
-  text-align: center; /* 검색 인풋 텍스트 가운데 정렬 */
+  transition: border-color 0.2s, background-color 0.2s;
 }
 
+/* 첫 번째 데이터 출력 카드 레이아웃 제한 */
+.study-info-card {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 카드 타이틀 (React, Component 등) */
+.card-title,
+.item-title {
+  font-size: 1.45em;
+  font-weight: 700;
+  color: #555670;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* 카드 설명 */
+.card-desc,
+.item-desc {
+  font-size: 1em;
+  color: #555555;
+  margin-top: 0;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+/* 카드 카테고리 (분류: library 등) */
+.card-category,
+.item-category {
+  font-size: 0.95em;
+  color: #888888;
+  margin: 0;
+}
+
+/* 카테고리 필터 버튼 컨테이너 */
 .filter-container {
   display: flex;
-  justify-content: center; /* 필터 버튼들 가운데 정렬 */
+  justify-content: center;
   flex-wrap: wrap;
-  width: 100%;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
+/* 필터 버튼 */
 .filter-container button {
-  padding: 8px 12px;
-  margin: 4px;
+  background-color: #f8f8f8;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  padding: 6px 14px;
   font-size: 0.9em;
+  color: #333333;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease-in-out;
+}
+
+.filter-container button:hover {
+  background-color: #f0f0f0;
+  border-color: #c0c0c0;
+}
+
+.filter-container button:active {
+  background-color: #e5e5e5;
+}
+
+/* 검색 컨테이너 */
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 검색 인풋 */
+.search-container input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1em;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: #333333;
+}
+
+.search-container input::placeholder {
+  color: #999999;
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: #b0b0b0;
+}
+
+/* 학습 목록 컨테이너 */
+.study-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 리스트 항목에 커서 포인터 추가 */
+.study-item {
   cursor: pointer;
 }
 
-.study-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 15px auto 0 auto;
-  max-width: 600px;
-}
-
-.study-item {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  background-color: #fff;
-  text-align: center; /* 리스트 항목 내 텍스트 가운데 정렬 */
-}
-
 .study-item:hover {
-  background-color: #f5f5f5;
+  background-color: #fafafb;
 }
 
-/* active 클래스 추가 시 강조 */
+/* active 클래스 추가 시 강조 (선택된 항목) */
 .study-item.active {
   border-color: #007bff;
-  background-color: #e6f2ff;
+  background-color: #f4f9ff;
 }
 
+/* 선택된 항목 메시지 */
 .selected-message {
   color: #007bff;
-  font-weight: bold;
-  margin: 5px 0;
-  text-align: center;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 0.95em;
 }

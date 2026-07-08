@@ -24,18 +24,14 @@ function App() {
 
   return (
     <div className="app">
-      <h1>React Basic Review Mission 2</h1>
+      <h1 className="main-title">React Basic Review Mission 2</h1>
       
       {/* 미션 1. 화면에는 전체 데이터 개수를 출력 */}
-      <div className="total-count">
-        전체 데이터 개수: {reactData.length}개
-      </div>
-
-      <hr />
+      <p className="total-count">전체 학습 항목 수: {reactData.length}개</p>
 
       {/* 미션 2. 컴포넌트로 데이터 전달하기 */}
-      <section>
-        <h2>미션 2. 첫 번째 데이터 출력 (StudyInfo 컴포넌트)</h2>
+      <section className="section">
+        <h2 className="section-title">첫 번째 데이터 출력</h2>
         {firstData && (
           <StudyInfo
             title={firstData.title}
@@ -45,35 +41,33 @@ function App() {
         )}
       </section>
 
-      <hr />
-
-      {/* 미션 5 & 추가 도전 과제. 카테고리 필터 및 검색 */}
-      <section>
-        <h2>미션 3-5 & 추가 도전 과제. 데이터 목록</h2>
-        
-        <div className="controls">
-          {/* 추가 도전 과제. 검색 input */}
-          <div className="search-container">
-            <label htmlFor="search">검색: </label>
-            <input
-              id="search"
-              type="text"
-              placeholder="제목 검색"
-              value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
-            />
-          </div>
-
-          {/* 미션 5. 카테고리 필터 버튼 */}
-          <div className="filter-container">
-            <button onClick={() => setCategory("all")}>전체</button>
-            <button onClick={() => setCategory("concept")}>concept</button>
-            <button onClick={() => setCategory("library")}>library</button>
-            <button onClick={() => setCategory("hook")}>hook</button>
-          </div>
+      {/* 미션 5. 카테고리 필터 버튼 */}
+      <section className="section">
+        <h2 className="section-title">카테고리 필터</h2>
+        <div className="filter-container">
+          <button onClick={() => setCategory("all")}>전체</button>
+          <button onClick={() => setCategory("concept")}>concept</button>
+          <button onClick={() => setCategory("library")}>library</button>
+          <button onClick={() => setCategory("hook")}>hook</button>
         </div>
+      </section>
 
-        {/* 미션 3 & 4. StudyList 컴포넌트 출력 */}
+      {/* 추가 도전 과제. 검색 input */}
+      <section className="section">
+        <h2 className="section-title">검색</h2>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="제목 검색"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+          />
+        </div>
+      </section>
+
+      {/* 미션 3 & 4. StudyList 컴포넌트 출력 */}
+      <section className="section">
+        <h2 className="section-title">학습 목록</h2>
         <StudyList
           items={filteredItems}
           selectedId={selectedId}
